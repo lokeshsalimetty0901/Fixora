@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: fixora-backend
+    env: node
+    region: oregon
+    buildCommand: npm --prefix server install && npm --prefix server run prisma:generate && npm --prefix server run build
+    startCommand: npm --prefix server run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false

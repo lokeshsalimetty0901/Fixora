@@ -1,0 +1,21 @@
+{
+  "name": "fixora-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FIXORA - Smart Local Service & Emergency Assistance Platform",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "npm --prefix server run build",
+    "build:client": "npm --prefix client run build",
+    "prisma:generate": "npm --prefix server run prisma:generate",
+    "prisma:push": "npm --prefix server exec prisma db push",
+    "prisma:seed": "npm --prefix server run prisma:seed"
+  }
+}
